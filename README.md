@@ -1,57 +1,136 @@
-# 🧬 Cancer Genomic Analysis  
+# 🧬 Cancer Genomic Analysis
 
-This repository contains a Python-based computational genomics project focused on sequence-level characterization of selected human oncogenes.  
+This repository contains two complementary computational genomics pipelines focused on sequence-level characterization and similarity analysis of selected human oncogenes.
 
-The project demonstrates foundational bioinformatics concepts including sequence parsing, compositional analysis, and open reading frame (ORF) detection implemented without external bioinformatics libraries.
-
----
-
-## 📘 Project Overview  
-
-This analysis examines genomic features of key cancer-related genes by:
-
-- Parsing DNA sequences from FASTA files  
-- Calculating GC content (%)  
-- Scanning all three forward reading frames  
-- Identifying the longest Open Reading Frame (ATG → in-frame stop codon)  
-- Generating automated CSV reports  
-- Producing GC content visualization  
-
-The goal is to demonstrate algorithmic understanding of coding structure and sequence composition in human oncogenes.
+Both modules are implemented in Python using core scientific libraries (NumPy, Pandas, Matplotlib) without external bioinformatics frameworks.
 
 ---
 
-## 🧬 Genes Analyzed  
+# 📘 Project 1 — Genomic Structure Analysis
 
-- **TP53** – tumor suppressor gene involved in DNA damage response  
-- **KRAS** – proto-oncogene regulating cell proliferation signaling  
-- **MYC** – transcription factor driving cell cycle progression  
-- **BRCA1** – DNA repair–associated tumor suppressor gene  
+This module focuses on sequence composition and coding structure.
+
+## 🔬 Methods
+
+- FASTA parsing  
+- GC content calculation (%)  
+- Three forward reading frame scanning  
+- Longest Open Reading Frame (ATG → in-frame stop codon) detection  
+- Automated CSV report generation  
+- GC content visualization  
+
+## ▶️ Run
+
+```bash
+python3 main.py
+```
+
+## 📤 Output
+
+- `report.csv` — GC content and longest ORF statistics per gene  
+- `plots/gc_content.png` — GC content comparison plot  
+
+## 🧠 Biological Insight
+
+Variation in GC content reflects gene-specific compositional patterns.
+
+Detected longest ORFs correspond to substantial coding regions consistent with functional protein-coding genes, validating reading-frame logic and ORF detection implementation.
 
 ---
 
-## 🧠 Repository Files  
+# 📘 Project 2 — k-mer Genomic Fingerprints & Similarity
 
-### 🔹 Code  
-- [`main.py`](main.py) – Complete analysis pipeline: FASTA parsing, GC-content calculation, multi-frame ORF detection, CSV export, and visualization.
+This module represents each gene as a normalized k-mer frequency vector and performs compositional similarity analysis.
 
-### 🔹 Input Data  
-- [`data/`](data/) – Directory containing FASTA files of selected human oncogenes.
+## 🔬 Methods
 
-### 🔹 Output  
-- [`report.csv`](report.csv) – Generated genomic metrics for each analyzed gene.  
-- [`plots/gc_content.png`](plots/gc_content.png) – Bar chart of GC content across genes.
+- k-mer frequency computation (default k = 4)  
+- Feature matrix construction (genes × kmers)  
+- Cosine similarity calculation  
+- Top-3 nearest neighbor identification  
+- Similarity heatmap visualization  
+
+## ▶️ Run
+
+```bash
+python3 modules/kmer_fingerprints/kmer.py
+```
+
+## 📤 Output
+
+All results are saved to:
+
+```
+results/kmer_fingerprints/
+```
+
+Generated files:
+
+- `kmer_features_k4.csv` — feature matrix  
+- `kmer_cosine_similarity_k4.csv` — similarity matrix  
+- `top_neighbors_k4.csv` — top-3 most similar genes  
+- `figures/kmer_similarity_heatmap_k4.png` — similarity heatmap  
+
+## 🧠 Computational Insight
+
+Cosine similarity compares directional patterns of normalized k-mer frequency vectors, enabling compositional similarity analysis independent of gene length.
+
+This approach transforms nucleotide sequences into quantitative feature representations suitable for downstream computational analysis.
 
 ---
 
-## 📈 Interpretation  
+# 🧬 Genes Analyzed
 
-Preliminary results show variation in GC content across oncogenes, reflecting gene-specific sequence composition patterns.  
-
-The identified longest ORFs correspond to substantial coding regions consistent with functional protein-coding genes, confirming correct reading-frame logic and biologically meaningful ORF detection.
+- **TP53** — tumor suppressor involved in DNA damage response  
+- **KRAS** — proto-oncogene regulating proliferation signaling  
+- **MYC** — transcription factor driving cell cycle progression  
+- **BRCA1** — DNA repair–associated tumor suppressor  
 
 ---
 
-## ▶️ How to Run  
+# 🗂 Repository Structure
 
-    python3 main.py
+```
+.
+├── main.py
+├── modules/
+│   └── kmer_fingerprints/
+│       └── kmer.py
+├── data/
+├── plots/
+├── results/
+│   └── kmer_fingerprints/
+└── README.md
+```
+
+---
+
+# ⚙️ Requirements
+
+- Python 3.9+
+- numpy
+- pandas
+- matplotlib
+
+Install dependencies if needed:
+
+```bash
+pip install numpy pandas matplotlib
+```
+
+---
+
+# 🎯 Project Objective
+
+To demonstrate foundational computational genomics skills including:
+
+- sequence parsing  
+- compositional analysis  
+- reading-frame logic  
+- feature engineering  
+- vector-based similarity analysis  
+- reproducible reporting  
+- scientific visualization  
+
+The combined pipelines provide a structured framework for sequence-level characterization of oncogenes using pure Python.
+
