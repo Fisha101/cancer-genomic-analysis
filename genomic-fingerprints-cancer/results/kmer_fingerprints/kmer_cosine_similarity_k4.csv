@@ -1,0 +1,5 @@
+,"NM_001408430.1 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 290, mRNA","NM_033360.4 Homo sapiens KRAS proto-oncogene, GTPase (KRAS), transcript variant a, mRNA","NM_001276760.3 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA","NM_002467.6 Homo sapiens MYC proto-oncogene, bHLH transcription factor (MYC), transcript variant 1, mRNA"
+"NM_001408430.1 Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 290, mRNA",0.999999999999999,0.8309436396480322,0.8403193404152665,0.8980469945030443
+"NM_033360.4 Homo sapiens KRAS proto-oncogene, GTPase (KRAS), transcript variant a, mRNA",0.8309436396480322,0.9999999999999998,0.7390269759721905,0.8308771728968743
+"NM_001276760.3 Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA",0.8403193404152665,0.7390269759721905,1.0000000000000002,0.9051982717993655
+"NM_002467.6 Homo sapiens MYC proto-oncogene, bHLH transcription factor (MYC), transcript variant 1, mRNA",0.8980469945030443,0.8308771728968743,0.9051982717993655,0.9999999999999994
